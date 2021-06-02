@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Activity2_training.Models.TicketModel>
+
+<p>
+    <a asp-action="CreateForm">Create New</a>
+</p>
+
+<div class="container d-flex flex-wrap">
+
+    @foreach(var item in Model)
+    {
+        var s = item.DestinationCountry;
+        var firstWord = s.IndexOf(" ") > -1 ? s.Substring(0, s.IndexOf(" ")) : s;
+
+
+<div class="card" style="width: 18rem;">
+    <img src="https://loremflickr.com/g/150/150/@firstWord?lock=@item.Id" class="card-img-top" alt="@item.DestinationCountry">
+    <div class="card-body">
+        <h5 class="card-title">@item.PassengerName</h5>
+        <p class="card-text">@item.DestinationCountry</p>
+        <p class="card-text">@Html.DisplayFor(m => item.TicketPrice)</p>
+        <p class="card-text">@item.FlightDate</p>
+        <a href="/ticket/ShowDetails/@item.Id" class="btn btn-primary">Show Details</a>
+        <a href="/ticket/Edit/@item.Id" class="btn border-warning">Edit</a>
+        <a href="/ticket/Delete/@item.Id" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+
+    }
+</div>
