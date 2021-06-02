@@ -188,9 +188,12 @@ namespace Activity2.Services
                 }
                 catch (Exception ex)
                 {
+                    // hello
                     Console.WriteLine(ex.Message);
+                    // kwhdgjkwvjdvwjedvjwv
                 }
             }
+
 
             return newIdNumber;
 
